@@ -1,0 +1,35 @@
+#! /bin/sh
+
+xsetroot -cursor_name left_ptr &
+sxhkd &
+
+bspc monitor -d 1 2 3 4 5
+
+bspc config border_width         0
+bspc config top_padding 	 -15
+bspc config right_padding	 -15
+bspc config left_padding         -15
+bspc config bottom_padding       -15
+bspc config window_gap         	 25
+
+
+#bspc config focused_border_color      "#0C2220"
+#bspc config normal_border_color "#0C2220"
+#bspc config urgent_border_color "#B58900"
+#bspc config presel_border_color "#26E2FF"
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Spotify desktop='^5'
+
+~/.config/polybar/launch.sh &
+picom &
+wal -R &
+pulseaudio
